@@ -1,0 +1,19 @@
+# Lazy.nvim
+lazy-lock.json
+lazy/
+.cache/
+
+# LSP / Mason
+# mason/
+# lsp_servers/
+# null-ls/
+
+# Swap / backup / undo
+*.swp
+*.swo
+*.bak
+undodir/
+
+# OS
+.DS_Store
+

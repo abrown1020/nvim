@@ -1,0 +1,8 @@
+Cramér-Rao
+Grassmannian
+Hermitian
+supremum 
+infimum
+Bartle
+Adhikari
+Int
