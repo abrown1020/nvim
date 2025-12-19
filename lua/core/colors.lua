@@ -133,6 +133,7 @@ M.highlights = {
 	-- Notify
 	NotifyERRORTitle = { fg = palette.fg_error, bg = palette.bg_float },
 	NotifyERRORBody = { fg = palette.fg_error, bg = palette.bg },
+	NotifyBackground = { fg = palette.fg_error, bg = palette.bg },
 
 	-- TreeSitter
 	["@variable"] = { fg = palette.cosmic_latte }, -- example using your palette
