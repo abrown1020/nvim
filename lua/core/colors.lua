@@ -9,6 +9,7 @@ local colors = {
 	magnolia = "#EDE6EF",
 	light_coral = "#EC8583",
 	rosy_brown = "#CEAAA1",
+	-- rosy_brown = "#F46049",
 	-- eerie_black = '#191919',
 	night = "#0E0E0E",
 	tea_green = "#BEDEBA",
@@ -17,33 +18,40 @@ local colors = {
 	ecru = "#DEBF7C",
 	periwinkle = "#C6BCF1",
 	uranian_blue = "#C2DEFF",
+	-- uranian_blue = "#85ACD6",
+	-- uranian_blue = "#1E9AE0",
 	onyx = "#454545",
 	comment_color = "#8D99AE",
 	wisteria = "#B8ABED",
 	thistle = "#D2C1D7",
+	gruvbox_text = "#EBDBB2",
+	gruvbox_bg = "#282828",
 }
 
 -- UI role mapping
 local palette = {
 	-- backgrounds
-	-- bg = colors.night,
+	-- bg = colors.gruvbox_bg,
 	bg = "NONE",
+
 	bg_float = colors.eerie_black,
 	bg_popup = colors.onyx,
 	bg_sidebar = colors.eerie_black,
-	bg_search = "#5F5958",
+	-- bg_search = "#5F5958",
 	bg_status = "#34383C",
-	bg_diff_add = "#2B3328",
-	bg_diff_chg = "#262636",
-	bg_diff_del = "#42242B",
-	bg_diff_txt = "#49443C",
+	-- bg_status = "NONE",
+	-- bg_diff_add = "#2B3328",
+	-- bg_diff_chg = "#262636",
+	-- bg_diff_del = "#42242B",
+	-- bg_diff_txt = "#49443C",
 
 	-- foregrounds
-	fg = colors.seasalt,
+	-- fg = colors.seasalt,
+	fg = colors.gruvbox_text,
 	fg_dim = colors.onyx,
+
 	-- fg_comment = colors.onyx,
 	fg_comment = colors.comment_color,
-	-- fg_const = colors.wisteria,
 	fg_const = colors.uranian_blue,
 	fg_function = colors.rosy_brown,
 	fg_ident = colors.thistle,
@@ -56,6 +64,7 @@ local palette = {
 	fg_special = colors.periwinkle,
 	fg_specialk = "#676767",
 	fg_question = "#9B8D7F",
+	-- fg_string = colors.periwinkle,
 	fg_string = colors.periwinkle,
 
 	-- scrollbars
@@ -65,6 +74,7 @@ local palette = {
 
 -- Highlight definitions
 M.highlights = {
+
 	Normal = { fg = palette.fg, bg = palette.bg },
 	NormalNC = { fg = palette.fg_dim, bg = palette.bg },
 	NormalFloat = { fg = palette.fg, bg = palette.bg_float },
@@ -76,6 +86,7 @@ M.highlights = {
 
 	Comment = { fg = palette.fg_comment, italic = true },
 	TSComment = { fg = palette.fg_comment, italic = true },
+
 	Conceal = { bg = palette.bg_sidebar },
 	Constant = { fg = palette.fg_const },
 	DiffAdd = { fg = "#FFFEDB", bg = palette.bg_diff_add },
@@ -87,15 +98,16 @@ M.highlights = {
 	ErrorMsg = { fg = "#FFFEDB" },
 	Function = { fg = palette.fg_function, bold = true },
 	Identifier = { fg = palette.fg_ident },
-	LineNr = { fg = "#6D6D6D", bg = palette.bg },
+	LineNr = { fg = palette.fg, bg = palette.bg },
 	CursorLineNr = { fg = palette.fg, bg = palette.bg },
 	LineNrAbove = { fg = palette.fg_dim, bg = palette.bg },
 	LineNrBelow = { fg = palette.fg_dim, bg = palette.bg },
-	MatchParen = { fg = colors.bittersweet_shimmer },
+	MatchParen = { fg = colors.tea_green },
 	MoreMsg = { fg = palette.fg_op },
 	ModeMsg = { fg = palette.fg_op },
 	NonText = { fg = "#303030" },
 	Operator = { fg = palette.fg_op },
+
 	PreProc = { fg = palette.fg_ident },
 	Question = { fg = palette.fg_question },
 	QuickFixLine = { bg = palette.bg_popup },
@@ -131,9 +143,8 @@ M.highlights = {
 	SnacksDashboardKey = { fg = palette.fg, bg = palette.bg_float },
 
 	-- Notify
-	NotifyERRORTitle = { fg = palette.fg_error, bg = palette.bg_float },
-	NotifyERRORBody = { fg = palette.fg_error, bg = palette.bg },
-	NotifyBackground = { fg = palette.fg_error, bg = palette.bg },
+	-- NotifyERRORTitle = { fg = palette.fg_error, bg = palette.bg_float },
+	-- NotifyERRORBody = { fg = palette.fg_error, bg = palette.bg },
 
 	-- TreeSitter
 	["@variable"] = { fg = palette.cosmic_latte }, -- example using your palette

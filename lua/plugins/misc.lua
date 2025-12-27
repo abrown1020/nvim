@@ -17,13 +17,13 @@ return {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 	},
-	{
-		-- Highlight todo, notes, etc in comments
-		"folke/todo-comments.nvim",
-		event = "BufReadPre",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
-	},
+	-- {
+	-- 	-- Highlight todo, notes, etc in comments
+	-- 	"folke/todo-comments.nvim",
+	-- 	event = "BufReadPre",
+	-- 	dependencies = { "nvim-lua/plenary.nvim" },
+	-- 	opts = { signs = false },
+	-- },
 	{
 		-- High-performance color highlighter
 		"norcalli/nvim-colorizer.lua",
@@ -32,4 +32,5 @@ return {
 			require("colorizer").setup()
 		end,
 	},
+	{ "shortcuts/no-neck-pain.nvim", version = "*" },
 }

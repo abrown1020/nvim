@@ -43,10 +43,10 @@ vim.keymap.set("n", "n", "nzzzv", opts)
 vim.keymap.set("n", "N", "Nzzzv", opts)
 
 -- Resize with arrows
--- vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
--- vim.keymap.set('n', '<Down>', ':resize +2<CR>', opts)
--- vim.keymap.set('n', '<Left>', ':vertical resize -2<CR>', opts)
--- vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
+vim.keymap.set("n", "<Up>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<Down>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
 --
 -- Buffers
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
@@ -91,7 +91,7 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open float
 -- Luasnips for latex keybindings
 vim.cmd([[
 " Use Tab to expand and jump through snippets
-imap <silent><expr> <C-l> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-l>' 
+imap <silent><expr> <C-l> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-l>'
 smap <silent><expr> <C-l> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<C-l>'
 
 " Use Shift-Tab to jump backwards through snippets
