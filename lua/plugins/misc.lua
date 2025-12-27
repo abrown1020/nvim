@@ -12,11 +12,11 @@ return {
 		-- GitHub intration for vim-fugitive
 		-- 'tpope/vim-rhubarb',
 	},
-	{
-		-- Hints keybinds
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-	},
+	-- {
+	-- 	-- Hints keybinds
+	-- 	"folke/which-key.nvim",
+	-- 	event = "VeryLazy",
+	-- },
 	-- {
 	-- 	-- Highlight todo, notes, etc in comments
 	-- 	"folke/todo-comments.nvim",
