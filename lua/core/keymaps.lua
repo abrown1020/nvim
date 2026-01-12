@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+-- vim.keymap.del("n", "<C-t>")
+
 -- Set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -20,6 +22,7 @@ vim.keymap.set("n", "<leader>co", ":copen<CR>", opts)
 
 -- Telescope
 vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+map("n", "<leader>g", "<cmd>Telescope git_files<cr>", opts)
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 map("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
@@ -27,9 +30,9 @@ map("n", "<leader><leader>", "<cmd>Telescope oldfiles<cr>", opts)
 
 -- save file without auto-formatting
 vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
+vim.keymap.set("n", "<C-q>", "<cmd> q <CR>", opts)
 
 -- quit file
-vim.keymap.set("n", "<C-q>", "<cmd> q <CR>", opts)
 
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x', opts)
@@ -79,10 +82,13 @@ vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv'", opts)
+vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv'", opts)
+
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
 
--- Diagnostic keymapskeyma
+-- Diagnostic keymaps
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })

@@ -11,7 +11,7 @@ return {
 		keywordStyle = { italic = true },
 		statementStyle = { bold = true },
 		typeStyle = {},
-		transparent = false,
+		transparent = true,
 		dimInactive = false,
 		terminalColors = true,
 
@@ -40,6 +40,7 @@ return {
 			local theme = colors.theme
 			local palette = colors.palette
 			return {
+
 				TelescopeTitle = { fg = theme.ui.special, bold = true },
 				TelescopePromptNormal = { bg = theme.ui.bg_p1 },
 				TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
