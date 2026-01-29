@@ -91,10 +91,32 @@ M = {
 	autosnippet(
 		{ trig = "dm", condition = line_begin, priority = 200, name = "display math", dscr = "display math" },
 		fmta(
-			[[ 
-    $  
-    <>. 
-    $ 
+			[[
+    $
+    <>
+    $
+    <>]],
+			{ i(1), i(0) }
+		)
+	),
+	autosnippet(
+		{ trig = "d.", condition = line_begin, priority = 200, name = "display math", dscr = "display math" },
+		fmta(
+			[[
+    $
+    <>.
+    $
+    <>]],
+			{ i(1), i(0) }
+		)
+	),
+	autosnippet(
+		{ trig = "d,", condition = line_begin, priority = 200, name = "display math", dscr = "display math" },
+		fmta(
+			[[
+    $
+    <>,
+    $
     <>]],
 			{ i(1), i(0) }
 		)
@@ -122,7 +144,7 @@ M = {
 		fmta(
 			[[
       #<>(title: "<>")[
-      <>      
+      <>
       ] <<<>>>
       <>
     ]],

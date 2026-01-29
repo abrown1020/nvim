@@ -23,7 +23,7 @@ return {
 				"lua_ls",
 				"rust_analyzer",
 				"ltex_plus",
-				"tinymist",
+				-- "tinymist",
 				-- "pylsp",
 			},
 			automatic_installation = true,
