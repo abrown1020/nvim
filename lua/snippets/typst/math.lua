@@ -50,11 +50,13 @@ end
 local M = {
 
 	-- Set Operations
-	--
 	automath({ trig = "cc" }, { t("subset") }),
+	automath({ trig = "xx" }, { t("times") }),
+	automath({ trig = "x.o" }, { t("times.o") }),
 	automath({ trig = "cq" }, { t("subset.eq") }),
 	automath({ trig = "ovl", name = "Text" }, fmt([[overline({}) {}]], { i(1), i(0) })),
 	automath({ trig = "UU", name = "Big Union" }, fmt([[union.big_({}) {}]], { i(1), i(0) })),
+	automath({ trig = "DU", name = "Big Disjoint Union" }, fmt([[union.sq.big_({}) {}]], { i(1), i(0) })),
 	automath({ trig = "nN", name = "Big Intersection" }, fmt([[inter.big_({}) {}]], { i(1), i(0) })),
 	automath({ trig = "c->", name = "Hook arrow" }, t("arrow.hook")),
 
@@ -69,26 +71,40 @@ local M = {
 	automath({ trig = "-+", wordTrig = false }, { t("minus.plus") }),
 
 	-- Text and spacing
-	automath({ trig = "tt", name = "Text" }, fmt([["{}" {}]], { i(1, "text here"), i(0) })),
+	-- automath({ trig = "tx", wordTrig = false, name = "Text" }, fmt([["{}" {}]], { i(1, "text here"), i(0) })),
 	automath({ trig = "qand" }, { t(' quad "and" quad ') }),
+	automath({ trig = "..." }, { t("dots ") }),
 	automath({ trig = "_", name = "Subscript" }, fmt([[_({}){}]], { i(1), i(0) })),
+	automath({ trig = "^", name = "Superscript" }, fmt([[^({}){}]], { i(1), i(0) })),
 
 	-- Linear Algebra
 	automath({ trig = ".t", wordTrig = false, name = "Transpose" }, { t("^T") }),
 	automath({ trig = ".h", wordTrig = false, name = "Hermitian Transpose" }, { t("^H") }),
+	automath({ trig = "dual", wordTrig = false, name = "Dual Space" }, { t("^(*) ") }),
+	automath({ trig = "norm", wordTrig = false, name = "Norm" }, fmt([[ norm({})_({}) {}]], { i(1), i(2), i(0) })),
 
 	-- Calculus
-	automath({ trig = "del", wordTrig = false, name = "Nabla" }, { t("nabla ") }), -- Statistics
+	automath({ trig = "nab", wordTrig = false, name = "Nabla" }, { t("nabla") }),
+	automath({ trig = "pd", wordTrig = false, name = "partial" }, { t("partial") }),
+	automath({ trig = "pfrac", name = "Partial Derivaitve" }, fmt([[(partial {})/(partial {})]], { i(1), i(0) })),
+	automath({ trig = "ddt", name = "Standard Derivative" }, fmt([[(d {})/(d {})]], { i(1), i(0) })),
+	automath(
+		{ trig = "dint", name = "Definite Integral" },
+		fmt([[integral_({})^({}) {} space d {}]], { i(1), i(2), i(3), i(0) })
+	),
+	automath({ trig = "FXX", wordTrig = false, name = "frak X" }, { t("frak(X)") }),
+
+	-- Statistics
 	automath(
 		{ trig = "wgni", wordTrig = false, name = "Inverse White Noise Covariance" },
 		{ t("1/(sigma^2) matr(I)") }
 	),
-	automath({ trig = "pfrac", name = "Text" }, fmt([[(diff {})/(diff {})]], { i(1), i(0) })),
-
-	-- Statistics
 	automath({ trig = "wgnc", wordTrig = false, name = "White Noise Covariance" }, { t("sigma^2 matr(I)") }),
 	automath({ trig = "hat", name = "Text" }, fmt([[hat({}){}]], { i(1), i(0) })),
 	automath({ trig = "sigs", wordTrig = false, name = "White Noise Covariance" }, { t("sigma^2") }),
+
+	-- Modifiers
+	automath({ trig = "~~", name = "Tilde" }, fmt([[tilde({}){}]], { i(1), i(0) })),
 
 	postfixm(
 		{ trig = ".fr", name = "Surround into fraction", match_pattern = "[^%s]+" },

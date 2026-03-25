@@ -185,6 +185,19 @@ M = {
 		)
 	),
 	autosnippet(
+		{ trig = "#lem", name = "Lemma environment", condition = line_begin },
+		fmta(
+			[[
+            #lem(title: "<>")[
+            \
+            <>
+            ]
+            <>
+            ]],
+			{ i(1), i(2), i(0) }
+		)
+	),
+	autosnippet(
 		{ trig = "#pro", name = "Proof environment", condition = line_begin },
 		fmta(
 			[[

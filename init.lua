@@ -17,7 +17,7 @@ end, {})
 
 -- LSP
 -- ---
-vim.lsp.enable("pylsp")
-vim.lsp.enable("ruff")
-vim.lsp.enable("ty")
-vim.lsp.enable("tinymist")
+-- vim.lsp.enable("pylsp")
+-- vim.lsp.enable("ruff")
+-- vim.lsp.enable("ty")
+-- vim.lsp.enable("tinymist")

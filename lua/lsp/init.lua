@@ -32,3 +32,81 @@ vim.diagnostic.config({
 		},
 	},
 })
+
+local lsps = {
+	{ "rust_analyzer" },
+	{ "lua_ls" },
+	{ "py_lsp" },
+	{ "ruff" },
+	{ "ty" },
+	{
+		"tinymist",
+		{
+
+			cmd = { "tinymist" },
+			filetypes = { "typst" },
+			settings = {
+				formatterMode = "typstyle",
+				exportPdf = "onSave",
+				semanticTokens = "disable",
+			},
+			on_attach = function(client, bufnr)
+				vim.api.nvim_create_user_command("PinMain", function()
+					client:exec_cmd({
+
+						title = "pin",
+
+						command = "tinymist.pinMain",
+
+						arguments = { vim.api.nvim_buf_get_name(0) },
+					}, { bufnr = bufnr })
+
+					vim.notify("Main file pinned.", vim.log.levels.INFO)
+				end, { desc = "[T]inymist [P]in" })
+			end,
+		},
+	},
+	{
+		"pylsp",
+		{
+			cmd = { "pylsp" },
+			filetypes = { "python" },
+			root_markers = {
+				".git",
+				"pyproject.toml",
+				"setup.py",
+				"setup.cfg",
+				"requirements.txt",
+			},
+			settings = {
+				pylsp = {
+					plugins = {
+						-- formatters
+						black = { enabled = true },
+						autopep8 = { enabled = false },
+						yapf = { enabled = false },
+						-- linters
+						pylint = { enabled = false },
+						pyflakes = { enabled = false },
+						pycodestyle = { enabled = false },
+						-- type checker
+						pylsp_mypy = { enabled = false },
+						-- completion
+						jedi_completion = { fuzzy = true, include_params = true, showroom_variables = true },
+
+						pyright = { enabled = true },
+					},
+				},
+			},
+		},
+	},
+}
+
+-- see: https://neovim.io/doc/user/news-0.11.html#_lsp
+for _, lsp in pairs(lsps) do
+	local name, config = lsp[1], lsp[2]
+	vim.lsp.enable(name)
+	if config then
+		vim.lsp.config(name, config)
+	end
+end

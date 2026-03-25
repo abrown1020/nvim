@@ -46,13 +46,4 @@ npairs.add_rules({
 		:with_pair(function()
 			return not in_typst_math()
 		end),
-	-- Rule("$", " $", "typst")
-	-- 	-- don't add a pair if the LEFT neighbor is a word/underscore
-	-- 	:with_pair(cond.not_before_regex("[%w_]", 1))
-	-- 	-- don't add a pair if the RIGHT neighbor is a word/underscore
-	-- 	:with_pair(cond.not_after_regex("[%w_]"))
-	-- 	-- when you type the second `_`, jump over the closer instead of inserting another
-	-- 	:with_move(function(opts)
-	-- 		return opts.char == "_"
-	-- 	end),
 })

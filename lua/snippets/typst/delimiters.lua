@@ -41,7 +41,10 @@ local M = {
 	automath({ trig = "lrp", name = "Left-Right ()" }, fmt([[lr(( {} )) {}]], { d(1, get_visual), i(0) })),
 	automath({ trig = "lrb", name = "Left-Right []" }, fmt([[lr([ {} ]) {}]], { d(1, get_visual), i(0) })),
 	automath({ trig = "lrs", name = "Left-Right {}" }, fmta([[lr({ <> }) <>]], { d(1, get_visual), i(0) })),
-	automath({ trig = "lra", name = "Left-Right <>" }, fmt([[lr(angle.l {} angle.r) {}]], { d(1, get_visual), i(0) })),
+	automath(
+		{ trig = "lra", name = "Left-Right <>" },
+		fmt([[lr(chevron.l {} chevron.r) {}]], { d(1, get_visual), i(0) })
+	),
 	automath({ trig = "lrv", name = "Left-Right ||" }, fmt([[lr(abs( {} )) {}]], { d(1, get_visual), i(0) })),
 }
 

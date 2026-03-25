@@ -1,5 +1,6 @@
 return {
 	"folke/flash.nvim",
+	enabled = false,
 	event = "BufReadPre",
 	---@type Flash.Config
 	opts = {},
