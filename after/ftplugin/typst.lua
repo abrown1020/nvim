@@ -1,5 +1,3 @@
--- after/ftplugin/typst.lua
--- after/ftplugin/typst.lua
 local ok, npairs = pcall(require, "nvim-autopairs")
 if not ok then
 	return
@@ -10,21 +8,16 @@ local cond = require("nvim-autopairs.conds")
 
 -- Utility: Detect if we are inside a Typst math context
 local function in_typst_math()
-	local ok, ts_utils = pcall(require, "nvim-treesitter.ts_utils")
-	if not ok then
-		return false
-	end
-	local node = ts_utils.get_node_at_cursor()
+	local node = vim.treesitter.get_node()
 	while node do
-		local type = node:type()
-		if type == "math" or type == "math_block" or type == "equation" then
+		if node:type() == "math" then
 			return true
 		end
 		node = node:parent()
 	end
 	return false
 end
--- Pair underscores in Typst, but avoid pairing inside identifiers (x_i, foo_bar)
+
 npairs.add_rules({
 	Rule("_", "_", "typst")
 		:with_pair(cond.not_before_regex("[%w_]", 1))

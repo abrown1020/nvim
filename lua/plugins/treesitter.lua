@@ -48,14 +48,5 @@ return {
 				vim.treesitter.start()
 			end,
 		})
-
-		-- Treesitter folding for typst and markdown
-		-- vim.api.nvim_create_autocmd("FileType", {
-		-- 	pattern = { "typst", "markdown" },
-		-- 	callback = function()
-		-- 		vim.wo[0][0].foldmethod = "expr"
-		-- 		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-		-- 	end,
-		-- })
 	end,
 }
