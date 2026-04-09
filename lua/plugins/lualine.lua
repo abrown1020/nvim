@@ -122,6 +122,11 @@ return {
 				-- },
 				-- lualine_y = { "location" },
 				-- lualine_z = { "progress" },
+				-- lualine_x = {
+				-- 	function()
+				-- 		return vim.fn.hostname()
+				-- 	end,
+				-- },
 				lualine_y = {},
 				lualine_z = {},
 			},

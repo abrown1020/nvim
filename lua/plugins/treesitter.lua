@@ -1,55 +1,61 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = "BufReadPost",
+	lazy = false,
 	build = ":TSUpdate",
-	priority = 500,
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
-	},
-	main = "nvim-treesitter.configs",
-	opts = {
-		ensure_installed = {
-			"lua",
-			"vim",
-			"vimdoc",
-			"python",
-			-- 'latex',
-			-- 'javascript',
-			"json",
-			"yaml",
-			-- 'html',
-			-- 'css',
-			"toml",
-			"markdown",
-			"markdown_inline",
-			"regex",
-			"gitignore",
-			"typst",
-		},
-		auto_install = true,
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = { "ruby" }, -- latex may need both regex + TS
-		},
-		indent = {
-			enable = true,
-			disable = { "ruby", "latex" }, -- latex indentation still not reliable
-		},
-		textobjects = {
-			select = {
-				enable = true,
-				lookahead = true,
-				keymaps = {
-					["am"] = "@math.outer",
-					["im"] = "@math.inner",
-				},
+	config = function()
+		require("nvim-treesitter").setup({
+			install_dir = vim.fn.stdpath("data") .. "/site",
+			ensure_installed = {
+				"typst",
+				"latex",
+				"python",
+				"lua",
+				"vim",
+				"vimdoc",
+				"bash",
+				"c",
+				"cpp",
+				"markdown",
+				"markdown_inline",
+				"json",
+				"toml",
+				"yaml",
 			},
-			move = {
-				enable = true,
-				set_jumps = true,
-				goto_next_start = { ["]m"] = "@math.outer" },
-				goto_previous_start = { ["[m"] = "@math.outer" },
+			auto_install = true,
+			highlight = { enable = true },
+		})
+
+		-- Filetype detection
+		vim.filetype.add({ extension = { typ = "typst" } })
+
+		-- Treesitter highlighting
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = {
+				"typst",
+				"latex",
+				"python",
+				"lua",
+				"vim",
+				"bash",
+				"c",
+				"cpp",
+				"markdown",
+				"json",
+				"toml",
+				"yaml",
 			},
-		},
-	},
+			callback = function()
+				vim.treesitter.start()
+			end,
+		})
+
+		-- Treesitter folding for typst and markdown
+		-- vim.api.nvim_create_autocmd("FileType", {
+		-- 	pattern = { "typst", "markdown" },
+		-- 	callback = function()
+		-- 		vim.wo[0][0].foldmethod = "expr"
+		-- 		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		-- 	end,
+		-- })
+	end,
 }
