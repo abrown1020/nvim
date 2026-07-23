@@ -40,6 +40,42 @@ local lsps = {
 	{ "ruff" },
 	{ "ty" },
 	{
+		"harper_ls",
+		{
+			settings = {
+				["harper-ls"] = {
+					userDictPath = vim.fn.stdpath("config") .. "/spell/harper-dict.txt",
+					workspaceDictPath = "",
+					fileDictPath = "",
+					linters = {
+						SpellCheck = true,
+						SpelledNumbers = true,
+						AnA = true,
+						SentenceCapitalization = true,
+						UnclosedQuotes = true,
+						WrongApostrophe = false,
+						LongSentences = false,
+						RepeatedWords = true,
+						Spaces = true,
+						CorrectNumberSuffix = true,
+					},
+					codeActions = {
+						ForceStable = false,
+					},
+					markdown = {
+						IgnoreLinkTitle = false,
+					},
+					diagnosticSeverity = "hint",
+					isolateEnglish = false,
+					dialect = "American",
+					maxFileLength = 120000,
+					ignoredLintsPath = "",
+					excludePatterns = {},
+				},
+			},
+		},
+	},
+	{
 		"texlab",
 		{
 			settings = {
