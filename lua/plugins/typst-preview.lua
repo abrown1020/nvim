@@ -1,4 +1,5 @@
 local is_ssh = os.getenv("SSH_CLIENT") ~= nil or os.getenv("SSH_TTY") ~= nil
+
 return {
 	"chomosuke/typst-preview.nvim",
 	version = "1.*",

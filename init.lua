@@ -12,7 +12,7 @@ require("config.lazy")
 -- Custom commands
 -- ---------------
 vim.api.nvim_create_user_command("TypstDoc", function()
-	vim.fn.jobstart({ "zen.exe", "--new-tab", "https://typst.app/docs/reference/symbols/sym/" }, { detach = true })
+	vim.fn.jobstart({ "$BROWSER/", "--new-tab", "https://typst.app/docs/reference/symbols/sym/" }, { detach = true })
 end, {})
 
 -- LSP
