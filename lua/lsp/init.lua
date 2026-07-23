@@ -40,6 +40,23 @@ local lsps = {
 	{ "ruff" },
 	{ "ty" },
 	{
+		"texlab",
+		{
+			settings = {
+				texlab = {
+					build = {
+						onSave = false,
+						forwardSearchAfter = false,
+					},
+					chktex = {
+						onEdit = true,
+						onOpenAndSave = true,
+					},
+				},
+			},
+		},
+	},
+	{
 		"tinymist",
 		{
 
@@ -93,6 +110,7 @@ local lsps = {
 						pylsp_mypy = { enabled = false },
 						-- completion
 						jedi_completion = { fuzzy = true, include_params = true, showroom_variables = true },
+						jedi_definition = { enabled = true },
 
 						pyright = { enabled = true },
 					},

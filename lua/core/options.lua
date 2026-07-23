@@ -47,5 +47,6 @@ vim.opt.shell = "/usr/bin/zsh"
 
 vim.opt.showtabline = 0
 vim.opt.winbar = ""
+-- vim.o.winbar = "%{%v:lua.expand('%:p:h')%}  %{%v:lua.require'nvim-navic'.get_location()%}"
 
 vim.opt.guicursor = ""

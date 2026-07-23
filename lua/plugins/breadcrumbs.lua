@@ -2,18 +2,23 @@
 return {
 	{
 		"SmiteshP/nvim-navic",
-		enabled = false,
+		enabled = true,
 		event = "LspAttach", -- lazy-load when any LSP attaches
 		opts = {
-			lsp = { auto_attach = true }, -- automatically call navic.attach()
+			preference = { "pylsp", "ty" },
+			lsp = { auto_attach = false }, -- automatically call navic.attach()
 		},
 	},
 	{
-		"LunarVim/breadcrumbs.nvim",
-		dependencies = { "SmiteshP/nvim-navic" },
-		event = "LspAttach",
-		config = function()
-			require("breadcrumbs").setup()
-		end,
+		"utilyre/barbecue.nvim",
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		opts = {
+			attach_navic = false,
+		},
 	},
 }

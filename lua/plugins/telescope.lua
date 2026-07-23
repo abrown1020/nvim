@@ -2,13 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	-- Tell Lazy when to load Telescsope
 	event = "VeryLazy",
-	-- cmd = {
-	--   'Telescope',
-	--   'TelescopeFindFiles',
-	--   'TelescopeLiveGrep',
-	--   'TelescopeBuffers',
-	-- },
-	branch = "0.1.x",
+	version = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
@@ -123,7 +117,7 @@ return {
 		-- Keymaps
 		vim.keymap.set("n", "<leader>/", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				winblend = 10,
+				winblend = 0,
 				previewer = true,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
